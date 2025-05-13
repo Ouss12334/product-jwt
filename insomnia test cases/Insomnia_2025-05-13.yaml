@@ -1,0 +1,291 @@
+type: collection.insomnia.rest/5.0
+name: product
+meta:
+  id: wrk_d915e4017f034a8cb488cb85922ce8a2
+  created: 1743086707816
+  modified: 1743086707816
+collection:
+  - name: product
+    meta:
+      id: fld_a8c39caf47cd48dd878647c5010db4e3
+      created: 1747122842797
+      modified: 1747122842797
+      sortKey: -1747122842797
+    children:
+      - url: localhost:8089/products
+        name: products
+        meta:
+          id: req_0509b01dca004ccb854c6780fcea9dfa
+          created: 1747122846962
+          modified: 1747123051518
+          isPrivate: false
+          sortKey: -1747122846962
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _['jwt-product'] }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8089/token
+        name: login for jwt as admin
+        meta:
+          id: req_d90dc49fdd2444adb5768b8fb1801867
+          created: 1747122873117
+          modified: 1747122974681
+          isPrivate: false
+          sortKey: -1745967580220
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: admin@admin.com
+          password: admin
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8089/token
+        name: login for jwt as user
+        meta:
+          id: req_5074cee7ae9349c4bb1be456cbf3c40b
+          created: 1747123059726
+          modified: 1747123075016
+          isPrivate: false
+          sortKey: -1745389946849
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: a@user.com
+          password: user
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8089/account
+        name: create user
+        meta:
+          id: req_509dbfbef46b449cba0e7704f0fedd1b
+          created: 1747123088638
+          modified: 1747124007561
+          isPrivate: false
+          sortKey: -1746545213591
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "a@user.com",
+              "firstname": "auser",
+              "email": "a@user.com",
+              "password": "user"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _['jwt-product'] }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8089/products
+        name: products
+        meta:
+          id: req_19430258b9a34747b332475433e15711
+          created: 1747123788608
+          modified: 1747124079472
+          isPrivate: false
+          sortKey: -1746834030276.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"code": "p1"
+            	,"name": "product 1"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _['jwt-product'] }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8089/products/wishlist
+        name: wishlist
+        meta:
+          id: req_c7e80b98a3d3463890f0fa09b59f4a02
+          created: 1747127905261
+          modified: 1747132358093
+          isPrivate: false
+          sortKey: -1746978438619.25
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _['jwt-product'] }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8089/products/wishlist/1
+        name: wishlist
+        meta:
+          id: req_44b1a623c07b41ed9bf13590d35ce3c8
+          created: 1747127996842
+          modified: 1747132343836
+          isPrivate: false
+          sortKey: -1746906234447.875
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _['jwt-product'] }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8089/products/cart
+        name: cart
+        meta:
+          id: req_81573a6d8a4c4ece8205e251145fd404
+          created: 1747129407342
+          modified: 1747132482917
+          isPrivate: false
+          sortKey: -1746870132362.1875
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _['jwt-product'] }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8089/products/cart/2
+        name: cart
+        meta:
+          id: req_52b6b4d75d7c45aa8bf52a539e098cfc
+          created: 1747129411563
+          modified: 1747130372886
+          isPrivate: false
+          sortKey: -1746852081319.3438
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _['jwt-product'] }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_43c21024f99cf349e156aed4cd0ff1833c9dc20c
+    created: 1743086707821
+    modified: 1745488538141
+  cookies:
+    - key: XSRF-TOKEN
+      value: f3e9f7bf-bf26-4c1f-b4c5-4a85fc766c3f
+      domain: localhost
+      path: /
+      hostOnly: true
+      creation: 2025-04-16T14:05:17.763Z
+      lastAccessed: 2025-04-16T14:05:17.763Z
+      id: ae0a7a5a-e0f8-4f13-98e7-416217a898bd
+    - key: JSESSIONID
+      value: EFE7C546431A33399360085147039F2F
+      domain: localhost
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-04-19T10:58:26.979Z
+      lastAccessed: 2025-04-24T09:55:38.140Z
+      id: 3a2bb46b-4f53-4182-99bc-98e888730774
+    - key: _gh_sess
+      value: BY9tJUb%2F2siewg0lyS0gs2O9It9Od0uU1WoIutkPYc45IasUT3S5D8VEv7sZeNsBayJWicmjt7FdswmO%2FfCF45v72xlxRC74Iv5IfRJ9tPKEBdy%2BI24AdhzBIDEqLtq223UgSvlB7uAyLO2kr7xr2MluwZtNgEIAminnS%2FJ1AH6WVx4YB%2FBJxiYKVmy55TDHfLz5Nh0DSo8nSvbpM9L0%2BuDCLdFP6Q2HP6KVfRdzfxh8wH32Hz%2B2NdQ%2BKkzYx5GBb1VNMptwZIjPk%2FN3IhbVUA%3D%3D--SXTuYsQEzruUqE6%2B--6I8exJoCGLNdR3wG1yq1pA%3D%3D
+      domain: localhost
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-04-19T10:58:26.980Z
+      lastAccessed: 2025-04-19T11:03:28.593Z
+      sameSite: lax
+      id: 612e0aa6-3f46-41d7-9f01-988e47b6c3ec
+environments:
+  name: Base Environment
+  meta:
+    id: env_43c21024f99cf349e156aed4cd0ff1833c9dc20c
+    created: 1743086707819
+    modified: 1747131767649
+    isPrivate: false
+  data:
+    jwt-product: eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODkiLCJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE3NDcxMzUzNTgsImlhdCI6MTc0NzEzMTc1OCwic2NvcGUiOiJST0xFX0FETUlOIn0.GfHticUKNzt-hJiLcborxFZA1JZeyY9jBPYNqGcO8qYLs9EweAYiRDV3kWythzcDwfjAf4VV_STzW_vI61M-z9MYP2SYGNPg92_G7WAGOX7pwT-rbQLsdS6fX_Zv4CA5zFvuUSn3Bb7ZGR8MLpuj2gAUhhhGSYPMdxHlsgGvrl4osiXDtcwvzVcPgITzKbJYWmGEVt__XGVRRpMzBkcQ0s9ZcrN2cap8jcKLGOexikUSKs9OqRkvzTD9Fl4p_vjFYGPHE8FGYNpzyUFia9oiJHsmVNCXOvunbUcH6W4RNho0u_9R0rELfwXczLU62IfVRID-yZ3YKG39qCjicgcQJw
